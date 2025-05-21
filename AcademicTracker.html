@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Academic Tracker - The StudyHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url("websitebackground.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #096B68;
+    }
+    header {
+      background-color: #3A6351;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header button {
+      background-color: white;
+      color: #096B68;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    header button:hover {
+      background-color: #FFFBDE;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .headline {
+      text-align: center;
+      font-family: 'Montserrat', serif;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .title-box {
+      overflow: hidden;
+      white-space: nowrap;
+      border-radius: 10px;
+      background-color: #618985;
+      margin: 20px auto;
+      padding: 10px;
+    }
+    .title-text {
+      text-align: center;
+      font-size: 40px;
+      font-family: 'Montserrat';
+      color: white;
+    }
+    td {
+      padding: 10px 12px;
+    }
+    tbody td:nth-child(1) {
+      background: #e0f7fa;
+    }
+    tbody td:nth-child(2) {
+      background: #f1f8e9;
+    }
+    tbody td:nth-child(3) {
+      background: #fffde7;
+    }
+    tbody td:nth-child(4),
+    tbody td:nth-child(5),
+    tbody td:nth-child(6) {
+      background: #fce4ec;
+    }
+    tbody td:nth-child(7),
+    tbody td:nth-child(8),
+    tbody td:nth-child(9),
+    tbody td:nth-child(10) {
+      background: #f1f8e9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th {
+      background: #618985;
+      color: white;
+      padding: 10px;
+      font-size: 18px;
+    }
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      margin: 0;
+    }
+    input[readonly] {
+      background: transparent;
+      border: none;
+      font-weight: bold;
+      text-align: center;
+      color: #096B68;
+    }
+    .auto-calc {
+      display: block;
+      width: 100%;
+      min-height: 36px;
+      background: transparent;
+      border-radius: 6px;
+      text-align: center;
+      line-height: 36px;
+      font-size: 15px;
+      color: #333;
+      border: none;
+      user-select: none;
+      pointer-events: none;
+      cursor: default;
+    }
+    button {
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #3A6351;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 1px solid #ccc;
+      color: white;
+    }
+    a { color: #FFFBDE; }
+  </style>
+</head>
+<body>
+  <header>
+    <button onclick="location.href='StudyHubHome.html'">Home</button>
+    <button onclick="location.href='AboutStudyHub.html'">About Us</button>
+    <button onclick="location.href='ClassSchedule.html'">Class Schedules</button>
+    <button onclick="location.href='StudyPlan.html'">Study Plan</button>
+    <button onclick="location.href='AcademicTracker.html'">Academic Tracker</button>
+  </header>
+
+  <div class="container">
+    <div class="headline"><strong><sup>THE</sup> STUDYHUB</strong></div>
+    <div class="title-box">
+      <div class="title-text"><strong>ACADEMIC TRACKER</strong></div>
+    </div>
+    <form>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:12%;">SUBJECT</th>
+            <th style="width:10%;">SEM 1 AVG</th>
+            <th style="width:7%;">DAILY 1</th>
+            <th style="width:7%;">DAILY 2</th>
+            <th style="width:7%;">DAILY 3</th>
+            <th style="width:7%;">DAILY 4</th>
+            <th style="width:10%;">DAILY AVG</th>
+            <th style="width:10%;">FINAL EXAM</th>
+            <th style="width:10%;">SEM 2 AVG</th>
+            <th style="width:10%;">YEARLY RESULT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example row, repeat for each subject -->
+          <tr>
+            <td><input type="text" value="Agama" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="PKN" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="B.Indo" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Inggris" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Mandarin" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Moral" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Informatika" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="PE" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Seni" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Keterampilan" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="SS" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="English" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr><tr>
+            <td><input type="text" value="Math" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Fisika" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Biologil" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Kimia" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Ekonomi" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Akuntansi" readonly></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc daily-avg"></span></td>
+            <td><input type="text"></td>
+            <td><span class="auto-calc sem2-avg"></span></td>
+            <td><span class="auto-calc yearly-result"></span></td>
+          </tr>
+
+          <!-- Repeat for all other subjects as needed -->
+        </tbody>
+      </table>
+      <br>
+      <button type="button" id="saveTrackerBtn" style="background:#3A6351; color:white; border:none; padding:10px 24px; border-radius:8px; font-size:16px; cursor:pointer;">Save Tracker</button>
+      <button type="button" id="resetTrackerBtn" style="background:#c94c4c; color:white; border:none; padding:10px 24px; border-radius:8px; font-size:16px; cursor:pointer; margin-left:10px;">Reset Tracker</button>
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2023 The StudyHub. All rights reserved.</p>
+    <p>Contact us: <a href="mailto:info@studyhub.com">info@studyhub.com</a></p>
+  </footer>
+  <script>
+    // Save the tracker to localStorage
+    function saveTracker() {
+      const rows = document.querySelectorAll('tbody tr');
+      const tracker = [];
+      rows.forEach(row => {
+        const inputs = row.querySelectorAll('input');
+        tracker.push({
+          subject: inputs[0].value,
+          sem1: inputs[1].value,
+          daily1: inputs[2].value,
+          daily2: inputs[3].value,
+          daily3: inputs[4].value,
+          daily4: inputs[5].value,
+          finalExam: inputs[6].value // finalExam is at index 6
+        });
+      });
+      localStorage.setItem('academicTracker', JSON.stringify(tracker));
+      alert('Academic tracker saved!');
+    }
+
+    // Load the tracker from localStorage
+    function loadTracker() {
+      const saved = localStorage.getItem('academicTracker');
+      if (saved) {
+        const tracker = JSON.parse(saved);
+        const rows = document.querySelectorAll('tbody tr');
+        tracker.forEach((item, i) => {
+          if (rows[i]) {
+            const inputs = rows[i].querySelectorAll('input');
+            inputs[0].value = item.subject;
+            inputs[1].value = item.sem1;
+            inputs[2].value = item.daily1;
+            inputs[3].value = item.daily2;
+            inputs[4].value = item.daily3;
+            inputs[5].value = item.daily4;
+            inputs[6].value = item.finalExam;
+          }
+        });
+        updateAllDailyAverages();
+      }
+    }
+
+    // Reset the tracker in localStorage and clear inputs
+    function resetTracker() {
+      if (confirm('Are you sure you want to reset your academic tracker?')) {
+        localStorage.removeItem('academicTracker');
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+          const inputs = row.querySelectorAll('input');
+          for (let i = 1; i <= 6; i++) {
+            if (inputs[i]) inputs[i].value = '';
+          }
+        });
+        updateAllDailyAverages();
+      }
+    }
+
+    // Calculate and update daily averages and other auto-calc fields
+    function updateDailyAverage(row) {
+      const inputs = row.querySelectorAll('input');
+      const dailyAvg = row.querySelector('.daily-avg');
+      const sem2Avg = row.querySelector('.sem2-avg');
+      const yearlyResult = row.querySelector('.yearly-result');
+      let sum = 0, count = 0;
+      for (let i = 2; i <= 5; i++) { // Daily 1-4
+        const val = parseFloat(inputs[i]?.value);
+        if (!isNaN(val)) {
+          sum += val;
+          count++;
+        }
+      }
+      // Calculate daily average
+      let dailyAverage = count > 0 ? (sum / count) : NaN;
+      dailyAvg.textContent = count > 0 ? dailyAverage.toFixed(2) : '';
+
+      // Calculate sem2 average: 0.25*finalExam + 0.75*dailyAverage
+      const finalExam = parseFloat(inputs[6]?.value); // index 6
+      let sem2 = NaN;
+      if (!isNaN(finalExam) && !isNaN(dailyAverage)) {
+        sem2 = 0.25 * finalExam + 0.75 * dailyAverage;
+        sem2Avg.textContent = sem2.toFixed(2);
+      } else {
+        sem2Avg.textContent = '';
+      }
+
+      // Calculate yearly result: 0.6*sem2 + 0.4*sem1
+      const sem1 = parseFloat(inputs[1]?.value);
+      if (!isNaN(sem2) && !isNaN(sem1)) {
+        const yearly = 0.6 * sem2 + 0.4 * sem1;
+        yearlyResult.textContent = yearly.toFixed(2);
+      } else {
+        yearlyResult.textContent = '';
+      }
+    }
+
+    function updateAllDailyAverages() {
+      document.querySelectorAll('tbody tr').forEach(row => {
+        updateDailyAverage(row);
+      });
+    }
+
+    // Attach event listeners to daily exam, final exam, and sem1 inputs
+    document.addEventListener('DOMContentLoaded', function() {
+      loadTracker();
+      document.querySelectorAll('tbody tr').forEach(row => {
+        const inputs = row.querySelectorAll('input');
+        // Daily 1-4
+        for (let i = 2; i <= 5; i++) {
+          if (inputs[i]) {
+            inputs[i].addEventListener('input', () => updateDailyAverage(row));
+          }
+        }
+        // Final Exam
+        if (inputs[6]) {
+          inputs[6].addEventListener('input', () => updateDailyAverage(row));
+        }
+        // Semester 1
+        if (inputs[1]) {
+          inputs[1].addEventListener('input', () => updateDailyAverage(row));
+        }
+      });
+      updateAllDailyAverages();
+
+      const saveBtn = document.getElementById('saveTrackerBtn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          saveTracker();
+        });
+      }
+      const resetBtn = document.getElementById('resetTrackerBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          resetTracker();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
