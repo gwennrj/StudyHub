@@ -220,7 +220,6 @@
     &copy; 2025 The StudyHub. All rights reserved. | Designed by group 1
   </footer>
   <script>
-    // Save the study plan to localStorage
     function saveStudyPlan() {
       const rows = document.querySelectorAll('tbody tr');
       const plan = [];
@@ -241,7 +240,6 @@
       alert('Study plan saved!');
     }
 
-    // Load the study plan from localStorage
     function loadStudyPlan() {
       const saved = localStorage.getItem('studyPlan');
       if (saved) {
@@ -262,7 +260,6 @@
       }
     }
 
-    // Reset the study plan in localStorage and clear inputs
     function resetStudyPlan() {
       if (confirm('Are you sure you want to reset your study plan?')) {
         localStorage.removeItem('studyPlan');
@@ -280,7 +277,6 @@
       }
     }
 
-    // Attach save and reset functions to your buttons
     document.addEventListener('DOMContentLoaded', function() {
       loadStudyPlan();
       const saveBtn = document.getElementById('savePlanBtn');
