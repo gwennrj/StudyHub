@@ -180,7 +180,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Example row, repeat for each subject -->
           <tr>
             <td><input type="text" value="Agama" readonly></td>
             <td><input type="text"></td>
@@ -396,8 +395,6 @@
             <td><span class="auto-calc sem2-avg"></span></td>
             <td><span class="auto-calc yearly-result"></span></td>
           </tr>
-
-          <!-- Repeat for all other subjects as needed -->
         </tbody>
       </table>
       <br>
@@ -409,7 +406,6 @@
     &copy; 2025 The StudyHub. All rights reserved. | Designed by group 1
   </footer>
   <script>
-    // Save the tracker to localStorage
     function saveTracker() {
       const rows = document.querySelectorAll('tbody tr');
       const tracker = [];
@@ -422,14 +418,12 @@
           daily2: inputs[3].value,
           daily3: inputs[4].value,
           daily4: inputs[5].value,
-          finalExam: inputs[6].value // finalExam is at index 6
+          finalExam: inputs[6].value 
         });
       });
       localStorage.setItem('academicTracker', JSON.stringify(tracker));
       alert('Academic tracker saved!');
     }
-
-    // Load the tracker from localStorage
     function loadTracker() {
       const saved = localStorage.getItem('academicTracker');
       if (saved) {
@@ -450,8 +444,6 @@
         updateAllDailyAverages();
       }
     }
-
-    // Reset the tracker in localStorage and clear inputs
     function resetTracker() {
       if (confirm('Are you sure you want to reset your academic tracker?')) {
         localStorage.removeItem('academicTracker');
@@ -465,8 +457,6 @@
         updateAllDailyAverages();
       }
     }
-
-    // Calculate and update daily averages and other auto-calc fields
     function updateDailyAverage(row) {
       const inputs = row.querySelectorAll('input');
       const dailyAvg = row.querySelector('.daily-avg');
@@ -480,11 +470,9 @@
           count++;
         }
       }
-      // Calculate daily average
       let dailyAverage = count > 0 ? (sum / count) : NaN;
       dailyAvg.textContent = count > 0 ? dailyAverage.toFixed(2) : '';
 
-      // Calculate sem2 average: 0.25*finalExam + 0.75*dailyAverage
       const finalExam = parseFloat(inputs[6]?.value); // index 6
       let sem2 = NaN;
       if (!isNaN(finalExam) && !isNaN(dailyAverage)) {
@@ -494,7 +482,6 @@
         sem2Avg.textContent = '';
       }
 
-      // Calculate yearly result: 0.6*sem2 + 0.4*sem1
       const sem1 = parseFloat(inputs[1]?.value);
       if (!isNaN(sem2) && !isNaN(sem1)) {
         const yearly = 0.6 * sem2 + 0.4 * sem1;
@@ -510,7 +497,6 @@
       });
     }
 
-    // Attach event listeners to daily exam, final exam, and sem1 inputs
     document.addEventListener('DOMContentLoaded', function() {
       loadTracker();
       document.querySelectorAll('tbody tr').forEach(row => {
