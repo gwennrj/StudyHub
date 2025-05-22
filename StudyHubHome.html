@@ -87,67 +87,20 @@
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    .side-boxes {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .small-box {
-      background-color: #F4F9F9;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.3s;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    .small-box:hover {
-      transform: scale(1.03);
-    }
-    .small-box button {
-      background-color: #618985;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .small-box button:hover {
-      background-color: #3A6351;
-    }
-    .column {
-      flex: 1;
-      background-color: #F4F9F9;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .column:hover {
-      transform: scale(1.03);
-    }
-    .column button {
-      background-color: #618985;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    iframe {
+      margin: 0 auto;
       width: 100%;
-      height: 400px;
-      border-radius: 12px;
-      margin: 30px 0;
     }
-    .description {
-      font-size: 18px;
-      line-height: 1.6;
-      text-align: justify;
+    @media (max-width: 768px) {
+      .split-columns {
+        flex-direction: column;
+      }
+      .marquee-text {
+        font-size: 28px;
+      }
+      .main-box img {
+        width: 100% !important;
+        height: auto !important;
+      }
     }
     footer {
       background-color: #3A6351;
@@ -157,17 +110,6 @@
       font-size: 14px;
       border-top: 1px solid #ccc;
       color: white;
-    }
-    @media (max-width: 768px) {
-      .split-columns {
-        flex-direction: column;
-      }
-      .marquee-text {
-        font-size: 28px;
-      }
-      iframe {
-        height: 250px;
-      }
     }
   </style>
 </head>
@@ -188,27 +130,13 @@
       <div class="marquee-text"><strong>WELCOME TO &nbsp;&nbsp;<sup>THE</sup>STUDYHUB&nbsp;&nbsp;!!</strong></div>
     </div>
     <div class="split-columns">
-      <!-- Left Main Box -->
       <div class="main-box">
         <h2>Welcome to <sup>The</sup>StudyHub!</h2>
         <p>This is your one-stop platform to organize your study time, calculate your grades, and stay motivated!</p>
-        <p>Use the tools and features below to start your journey!</p>
+        <p>Use the tools and features above to start your journey!</p>
         <center>
           <img src="https://cdn.dribbble.com/userupload/35032201/file/original-bd29704daa2c99f4b7406afd3f5ee4fc.gif" width="600" height="400" alt="StudyHub Welcome">
         </center>
-      </div>
-      <!-- Right Side: Two stacked boxes -->
-      <div class="side-boxes">
-        <div class="column small-box">
-          <h3>NEW AROUND HERE?</h3>
-          <p>Click below to customize your experience!</p>
-          <button onclick="location.href='StudyHub.html'">Data Save</button>
-        </div>
-        <div class="column small-box">
-          <h3>FAMILIAR HERE?</h3>
-          <p>Click below to reload your saved preferences!</p>
-          <button onclick="location.href='StudyHub.html'">Reload Data</button>
-        </div>
       </div>
     </div>
   </div>
